@@ -11,6 +11,7 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { ConfiguracionComponent } from './componentes/configuracion/configuracion.component';
 import { NoEncontradoComponent } from './componentes/no-encontrado/no-encontrado.component';
 import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.component';
+import {AppRoutingModule} from "src/app/app-routing.module";
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PiePaginaComponent } from './componentes/pie-pagina/pie-pagina.componen
     PiePaginaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
