@@ -27,6 +27,7 @@ import {AngularFireAuthModule} from "@angular/fire/auth";
 
 /*Flash Messages*/
 import {FlashMessagesModule} from "angular2-flash-messages";
+import { AgregarClienteComponent } from './componentes/agregar-cliente/agregar-cliente.component';
 
 
 @NgModule({
@@ -40,12 +41,13 @@ import {FlashMessagesModule} from "angular2-flash-messages";
     RegistroComponent,
     ConfiguracionComponent,
     NoEncontradoComponent,
-    PiePaginaComponent
+    PiePaginaComponent,
+    AgregarClienteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firestore, 'control-clientes')
+    AngularFireModule.initializeApp(environment.firestore, 'control-clientes'),
     AngularFirestoreModule,
     AngularFireAuthModule,
     FormsModule,

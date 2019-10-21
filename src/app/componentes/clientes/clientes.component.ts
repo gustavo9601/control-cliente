@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ClientesService} from "src/app/servicios/clientes.service";
 import {Cliente} from "src/app/modelos/cliente.model";
 
+
 @Component({
   selector: 'app-clientes',
   templateUrl: './clientes.component.html',
@@ -10,6 +11,7 @@ import {Cliente} from "src/app/modelos/cliente.model";
 export class ClientesComponent implements OnInit {
 
   public clientes: Cliente[];
+
 
   constructor(private _clientesService: ClientesService) {
   }
@@ -40,8 +42,8 @@ export class ClientesComponent implements OnInit {
     //si hay clientes los iteramos
     if (this.clientes) {
       this.clientes.forEach(
-        (cliente) => {
-          saldoTotal += parseInt(cliente.saldo)
+        (cliente: any) => {
+          saldoTotal += parseInt(cliente.saldo);
         }
       )
     }

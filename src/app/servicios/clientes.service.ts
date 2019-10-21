@@ -50,4 +50,50 @@ export class ClientesService {
   }
 
 
+  agregarCliente(cliente: Cliente) {
+    let agregar = this.clientesColeccion.add(cliente);
+    if (agregar) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+
+  editarCliente(cliente: Cliente) {
+    this.clienteDoc = this._db.doc('clientes/' + cliente.id);
+
+    this.clienteDoc.update(cliente);
+
+  }
+
+
+  eliminarCliente(cliente: Cliente) {
+    this.clienteDoc = this._db.doc('clientes/' + cliente.id);
+
+    this.clienteDoc.delete();
+  }
+
+  getCliente(id: string) {
+    this.clienteDoc = this._db.doc('clientes/' + id);
+
+    this.cliente = this.clienteDoc.snapshotChanges().pipe(
+      map(
+        (respuestaBD) => {
+          if (respuestaBD.payload.exists === false) {
+            return null
+          } else {
+            const datos = respuestaBD.payload.data() as Cliente;
+            datos.id = respuestaBD.payload.id;
+            return datos;
+          }
+        }
+      )
+    )
+
+
+    return this.cliente;
+  };
+
 }
