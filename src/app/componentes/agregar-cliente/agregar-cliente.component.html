@@ -18,7 +18,6 @@
                  [ngClass]="{'is-invalid': nombre.errors && nombre.touched}"
                  required
                  minlength="2">
-
           <div [hidden]="!nombre.errors?.required" class="invalid-feedback">
             Nombre requerido
           </div>

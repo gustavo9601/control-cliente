@@ -30,7 +30,6 @@ export class AgregarClienteComponent implements OnInit {
   //Le escificamos el tipado que recibira
   agregarCliente({value, valid}: { value: Cliente, valid: boolean }) {
 
-
     console.log(value, valid);
     if (!valid) {
       this._flashMessages.show('Por favor diligencia el formulario correctamente', {
